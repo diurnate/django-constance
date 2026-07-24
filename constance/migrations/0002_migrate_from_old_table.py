@@ -22,7 +22,7 @@ def _migrate_from_old_table(apps, schema_editor) -> None:
             f"INSERT INTO constance_constance ( {quoted_string} ) SELECT {quoted_string} FROM {old_table_name}",  # noqa: S608
             [],
         )
-        cursor.execute(f"DROP TABLE {old_table_name}", [])
+        # cursor.execute(f"DROP TABLE {old_table_name}", [])
 
     Constance = apps.get_model("constance", "Constance")
     sequence_sql = connection.ops.sequence_reset_sql(no_style(), [Constance])
