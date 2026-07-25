@@ -64,5 +64,5 @@ class Migration(migrations.Migration):
     dependencies = [("constance", "0002_migrate_from_old_table")]
 
     operations = [
-        migrations.RunPython(migrate_pickled_data),
+        migrations.RunPython(migrate_pickled_data, reverse_code=lambda x, y: None),
     ]
